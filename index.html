@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FD MATH FORMS - Formularios Matemáticos Universitarios</title>
+  <style>
+    /* PALETA DE COLORES */
+    :root {
+      --bg-color: #080f28;
+      --card-bg: rgba(28, 37, 65, 0.85);
+      --accent-electric: #00d4ff;
+      --accent-blue-light: #5bc0be;
+      --text-light: #edf6f9;
+      --text-muted: #a0aec0;
+      --coffee-yellow: #FFDD00;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-light);
+      padding-bottom: 60px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* FONDO CON TEXTURA Y CUADRÍCULA */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(rgba(0, 212, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(to right, rgba(91, 192, 190, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(91, 192, 190, 0.03) 1px, transparent 1px);
+      background-size: 30px 30px, 40px 40px, 40px 40px;
+      z-index: -2;
+    }
+
+    /* SÍMBOLOS MATEMÁTICOS DE FONDO */
+    .math-bg-symbols {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      font-family: 'Times New Roman', serif;
+      font-style: italic;
+      color: rgba(0, 212, 255, 0.04);
+      user-select: none;
+    }
+
+    .sym-1 { position: absolute; top: 10%; left: 5%; font-size: 8rem; }
+    .sym-2 { position: absolute; top: 60%; left: 8%; font-size: 10rem; }
+    .sym-3 { position: absolute; top: 20%; right: 6%; font-size: 9rem; }
+    .sym-4 { position: absolute; top: 75%; right: 10%; font-size: 7rem; }
+    .sym-5 { position: absolute; top: 45%; left: 48%; font-size: 12rem; transform: translate(-50%, -50%); }
+
+    /* ENCABEZADO Y MENÚ SUPERIOR */
+    header {
+      background: rgba(11, 19, 43, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 15px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--accent-electric);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.25);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--accent-electric);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+    }
+
+    .logo span {
+      color: var(--text-light);
+    }
+
+    /* BOTONES DEL MENÚ SUPERIOR DERECHO */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-contact {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(91, 192, 190, 0.4);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-contact:hover {
+      border-color: var(--accent-electric);
+      color: var(--accent-electric);
+      background: rgba(0, 212, 255, 0.05);
+    }
+
+    .btn-coffee {
+      background-color: var(--coffee-yellow);
+      color: #000;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 221, 0, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-coffee:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 18px rgba(255, 221, 0, 0.6);
+    }
+
+    /* HERO & BUSCADOR */
+    .hero {
+      text-align: center;
+      padding: 50px 20px 30px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .hero p {
+      color: var(--accent-blue-light);
+      font-size: 1.15rem;
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      width: 100%;
+      max-width: 600px;
+      padding: 16px 24px;
+      border-radius: 30px;
+      border: 2px solid var(--accent-electric);
+      background-color: rgba(8, 15, 40, 0.9);
+      color: var(--text-light);
+      font-size: 1.05rem;
+      outline: none;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .search-box:focus {
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.7);
+      background-color: #0b132b;
+    }
+
+    /* FILTROS POR MATERIA */
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 20px auto 35px auto;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+
+    .filter-btn {
+      background-color: rgba(28, 37, 65, 0.7);
+      color: var(--text-light);
+      border: 1px solid var(--accent-blue-light);
+      padding: 8px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background-color: var(--accent-electric);
+      color: var(--bg-color);
+      border-color: var(--accent-electric);
+      box-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+    }
+
+    /* SECCIÓN DE TARJETAS (CUADRÍCULA) */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(5px);
+      border-radius: 14px;
+      padding: 25px;
+      border: 1px solid rgba(91, 192, 190, 0.25);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: var(--accent-electric);
+      box-shadow: 0 8px 25px rgba(0, 212, 255, 0.35);
+    }
+
+    .card-tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-electric);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+      color: var(--text-light);
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+
+    .btn-download {
+      display: inline-block;
+      text-align: center;
+      background-color: transparent;
+      color: var(--accent-electric);
+      border: 2px solid var(--accent-electric);
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .btn-download:hover {
+      background-color: var(--accent-electric);
+      color: var(--bg-color);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+    }
+
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      padding: 40px;
+      display: none;
+    }
+
+    /* RECUADRO DE AGRADECIMIENTO AL FINAL */
+    .support-box {
+      grid-column: 1 / -1;
+      background: rgba(11, 19, 43, 0.7);
+      border: 1px dashed var(--accent-blue-light);
+      border-radius: 14px;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .support-title {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .support-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 650px;
+      margin: 0 auto 18px auto;
+      line-height: 1.5;
+    }
+
+    .btn-coffee-large {
+      display: inline-block;
+      background-color: var(--coffee-yellow);
+      color: #000;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 12px 26px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px rgba(255, 221, 0, 0.3);
+    }
+
+    .btn-coffee-large:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 22px rgba(255, 221, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SÍMBOLOS MATEMÁTICOS DE FONDO -->
+  <div class="math-bg-symbols">
+    <span class="sym-1">&int;</span>
+    <span class="sym-2">&lim;</span>
+    <span class="sym-3">&sum;</span>
+    <span class="sym-4">&infin;</span>
+    <span class="sym-5">f'(x)</span>
+  </div>
+
+  <!-- ENCABEZADO -->
+  <header>
+    <div class="logo">FD <span>MATH FORMS</span></div>
+    
+    <div class="header-actions">
+      <!-- BOTÓN DE CONTACTO DIRECTO -->
+      <a href="mailto:fdmathforms@gmail.com?subject=Consulta%20o%20Sugerencia%20-%20FD%20Math%20Forms" class="btn-contact">
+        ✉️ Contacto
+      </a>
+      
+      <!-- BOTÓN BUY ME A COFFEE (EN CABECERA) -->
+      <a href="https://www.buymeacoffee.com/tu_usuario" target="_blank" class="btn-coffee" title="¿Te sirvió el formulario? ¡Invítame un café!">
+        ☕ ¿Te sirvió? Invítame un café
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO & BUSCADOR -->
+  <section class="hero">
+    <h1>Formularios Matemáticos Universitarios</h1>
+    <p>Descarga resúmenes y tablas temáticas en PDF listos para estudiar.</p>
+    <input type="text" id="searchInput" class="search-box" placeholder="Buscar por tema (ej. Derivadas, Optimizacion, Razones de cambio)...">
+  </section>
+
+  <!-- FILTROS POR MATERIA -->
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="calculo-diferencial">Cálculo Diferencial</button>
+    <button class="filter-btn" data-filter="calculo-integral">Cálculo Integral</button>
+    <button class="filter-btn" data-filter="geometria-analitica">Geometría Analítica</button>
+  </div>
+
+  <!-- CATÁLOGO DE FORMULARIOS -->
+  <main class="container" id="formsContainer">
+    
+    <!-- FORMULARIO 1: DERIVADAS BASE -->
+    <div class="card" data-category="calculo-diferencial" data-search="calculo diferencial derivadas base reglas de derivacion derivadas de funciones elementales trigonometricas exponenciales funcion compuesta regla de la cadena derivada por definicion">
+      <div>
+        <div class="card-tag">Cálculo Diferencial</div>
+        <h3 class="card-title">Derivadas Base</h3>
+        <p class="card-desc">Reglas de derivación, derivadas de funciones elementales, trigonométricas, exponenciales, función compuesta (Regla de la cadena) y derivada por definición.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1vsVzukar7POEgmC2IIRb4nstV8nXcbn4/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+    <!-- FORMULARIO 2: GUÍA COMPLETA DE FUNCIONES -->
+    <div class="card" data-category="calculo-diferencial" data-search="calculo diferencial guia completa de funciones dominio base sin restricciones restricciones algebraicas clave restricciones trigonometricas e inversas combinacion de dominios y casos compuestos notacion de intervalos">
+      <div>
+        <div class="card-tag">Cálculo Diferencial</div>
+        <h3 class="card-title">Guía Completa de Funciones</h3>
+        <p class="card-desc">Dominio Base (Sin Restricciones), Restricciones Algebraicas Clave, Restricciones Trigonométricas e Inversas, Combinación de Dominios y Casos Compuestos, Notación de Intervalos.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1zxvHOABETy4YDGRKQFpSUEQYqu0ZLKq6/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+    <!-- FORMULARIO 3: LÍMITES -->
+    <div class="card" data-category="calculo-diferencial" data-search="calculo diferencial limites formas indeterminadas e igualdades simbolicas propiedades y teoremas fundamentales limites notables regla de l'hopital lhopital transformaciones">
+      <div>
+        <div class="card-tag">Cálculo Diferencial</div>
+        <h3 class="card-title">Límites</h3>
+        <p class="card-desc">Formas Indeterminadas e Igualdades Simbólicas, Propiedades y Teoremas Fundamentales, Límites Notables, Regla de L'Hôpital y Transformaciones.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1ekf6r7f_SfWeWWRIJolkgop7qMcpFBlM/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+    <!-- FORMULARIO 4: GUÍA DE CONTINUIDAD DE FUNCIONES -->
+    <div class="card" data-category="calculo-diferencial" data-search="calculo diferencial guia de continuidad de funciones las 3 tres condiciones de continuidad en un punto clasificacion de discontinuidades teorema de bolzano">
+      <div>
+        <div class="card-tag">Cálculo Diferencial</div>
+        <h3 class="card-title">Guía de Continuidad de Funciones</h3>
+        <p class="card-desc">Las 3 condiciones de continuidad en un punto, clasificación de discontinuidades y el Teorema de Bolzano.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1WCcxMKqF0Lc9OHWrvWHJ3GJsgpnJJfkH/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+    <!-- FORMULARIO 5: GUÍA DEFINITIVA DE ESTUDIO DE CURVAS -->
+    <div class="card" data-category="calculo-diferencial" data-search="calculo diferencial guia definitiva de estudio de curvas dominio simetria e intersecciones asintotas y limites extremos puntos criticos intervalos de crecimiento decrecimiento maximos minimos relativos concavidad puntos de inflexion comportamiento rango">
+      <div>
+        <div class="card-tag">Cálculo Diferencial</div>
+        <h3 class="card-title">Guía Definitiva de Estudio de Curvas</h3>
+        <p class="card-desc">Dominio, Simetría e Intersecciones, Asíntotas y Límites Extremos, Puntos críticos, intervalos de crecimiento/decrecimiento y máximos/mínimos relativos, concavidad, puntos de inflexión, comportamiento y rango.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/17iKWaswzZU3daBxI_RvM8VxylDOz0xzG/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+    <!-- FORMULARIO 6: OPTIMIZACIÓN Y RAPIDEZ DE VARIACIÓN -->
+    <div class="card" data-category="calculo-diferencial" data-search="calculo diferencial optimizacion y rapidez de variacion geometria plana y modelos espaciales relaciones metricas y trigonometricas razones de cambio optimizacion y criterios de extremos">
+      <div>
+        <div class="card-tag">Cálculo Diferencial</div>
+        <h3 class="card-title">Optimización y Rapidez de Variación</h3>
+        <p class="card-desc">Geometría plana y modelos espaciales, relaciones métricas y trigonométricas, Razones de cambio, optimización y criterios de extremos.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1aWemCYmSlZg-7QZ0FpQlnkKXUbAjGA-f/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+    <!-- MENSAJE SI NO HAY RESULTADOS DE BÚSQUEDA -->
+    <div class="no-results" id="noResults">
+      No se encontraron formularios para esa búsqueda.
+    </div>
+
+    <!-- RECUADRO AMISTOSO AL FINAL -->
+    <div class="support-box">
+      <div class="support-title">🎓 <strong>¿Te sirvieron estos formularios para estudiar?</strong></div>
+      <p class="support-sub">Si este contenido te ayudó a preparar tu examen o entender mejor la materia, puedes apoyarme a seguir creando más guías gratuitas invitándome un café.</p>
+      <a href="https://www.buymeacoffee.com/tu_usuario" target="_blank" class="btn-coffee-large">
+        ☕ Invítame un café
+      </a>
+    </div>
+
+  </main>
+
+  <!-- LÓGICA DE INTERACCIÓN (JAVASCRIPT) -->
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+    const noResults = document.getElementById('noResults');
+
+    let currentFilter = 'all';
+
+    function filterCards() {
+      const query = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const searchText = card.getAttribute('data-search').toLowerCase();
+
+        const matchesCategory = (currentFilter === 'all' || category === currentFilter);
+        const matchesSearch = searchText.includes(query);
+
+        if (matchesCategory && matchesSearch) {
+          card.style.display = "flex";
+          visibleCount++;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      noResults.style.display = visibleCount === 0 ? "block" : "none";
+    }
+
+    searchInput.addEventListener('input', filterCards);
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter');
+        filterCards();
+      });
+    });
+  </script>
+
+</body>
+</html>
