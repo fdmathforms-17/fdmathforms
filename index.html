@@ -13,7 +13,7 @@
       --accent-blue-light: #5bc0be;
       --text-light: #edf6f9;
       --text-muted: #a0aec0;
-      --coffee-yellow: #FFDD00;
+      --kofi-blue: #29abe2;
     }
 
     * {
@@ -126,24 +126,24 @@
       background: rgba(0, 212, 255, 0.05);
     }
 
-    .btn-coffee {
-      background-color: var(--coffee-yellow);
-      color: #000;
+    .btn-kofi {
+      background-color: var(--kofi-blue);
+      color: #fff;
       text-decoration: none;
       font-size: 0.88rem;
       font-weight: 700;
       padding: 8px 16px;
       border-radius: 20px;
       transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(255, 221, 0, 0.3);
+      box-shadow: 0 0 10px rgba(41, 171, 226, 0.4);
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    .btn-coffee:hover {
+    .btn-kofi:hover {
       transform: scale(1.04);
-      box-shadow: 0 0 18px rgba(255, 221, 0, 0.6);
+      box-shadow: 0 0 18px rgba(41, 171, 226, 0.7);
     }
 
     /* HERO & BUSCADOR */
@@ -318,22 +318,22 @@
       line-height: 1.5;
     }
 
-    .btn-coffee-large {
+    .btn-kofi-large {
       display: inline-block;
-      background-color: var(--coffee-yellow);
-      color: #000;
+      background-color: var(--kofi-blue);
+      color: #fff;
       text-decoration: none;
       font-weight: 700;
       font-size: 1rem;
       padding: 12px 26px;
       border-radius: 25px;
       transition: all 0.3s ease;
-      box-shadow: 0 0 12px rgba(255, 221, 0, 0.3);
+      box-shadow: 0 0 12px rgba(41, 171, 226, 0.4);
     }
 
-    .btn-coffee-large:hover {
+    .btn-kofi-large:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 22px rgba(255, 221, 0, 0.6);
+      box-shadow: 0 0 22px rgba(41, 171, 226, 0.7);
     }
   </style>
 </head>
@@ -358,9 +358,9 @@
         ✉️ Contacto
       </a>
       
-      <!-- BOTÓN BUY ME A COFFEE (EN CABECERA) -->
-      <a href="https://buymeacoffee.com/fdmathforms" target="_blank" class="btn-coffee" title="¿Te sirvió el formulario? ¡Invítame un café!">
-        ☕ ¿Te sirvió? Invítame un café
+      <!-- BOTÓN KO-FI (EN CABECERA) -->
+      <a href="https://ko-fi.com/fdmathforms" target="_blank" class="btn-kofi" title="¿Te sirvió el formulario? ¡Invítame un café!">
+        ☕ Invítame un café
       </a>
     </div>
   </header>
@@ -452,7 +452,7 @@
     <div class="support-box">
       <div class="support-title">🎓 <strong>¿Te sirvieron estos formularios para estudiar?</strong></div>
       <p class="support-sub">Si este contenido te ayudó a preparar tu examen o entender mejor la materia, puedes apoyarme a seguir creando más guías gratuitas invitándome un café.</p>
-      <a href="https://www.buymeacoffee.com/fdmathforms" target="_blank" class="btn-coffee-large">
+      <a href="https://ko-fi.com/fdmathforms" target="_blank" class="btn-kofi-large">
         ☕ Invítame un café
       </a>
     </div>
@@ -499,6 +499,17 @@
         currentFilter = btn.getAttribute('data-filter');
         filterCards();
       });
+    });
+  </script>
+
+  <!-- WIDGET FLOTANTE DE KO-FI -->
+  <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+  <script>
+    kofiWidgetOverlay.draw('fdmathforms', {
+      'type': 'floating-chat',
+      'floating-chat.donateButton.text': 'Apoyar',
+      'floating-chat.donateButton.background-color': '#00d4ff',
+      'floating-chat.donateButton.text-color': '#080f28'
     });
   </script>
 
