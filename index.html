@@ -369,7 +369,7 @@
   <section class="hero">
     <h1>Formularios Matemáticos Universitarios</h1>
     <p>Descarga resúmenes y tablas temáticas en PDF listos para estudiar.</p>
-    <input type="text" id="searchInput" class="search-box" placeholder="Buscar por tema (ej. Integrales, Polares, Derivadas, Conicas, Limites)...">
+    <input type="text" id="searchInput" class="search-box" placeholder="Buscar por tema (ej. Matrices, Integrales, Derivadas, Conicas)...">
   </section>
 
   <!-- FILTROS POR MATERIA -->
@@ -377,11 +377,97 @@
     <button class="filter-btn active" data-filter="all">Todos</button>
     <button class="filter-btn" data-filter="calculo-diferencial">Cálculo Diferencial</button>
     <button class="filter-btn" data-filter="calculo-integral">Cálculo Integral</button>
+    <button class="filter-btn" data-filter="algebra-lineal">Álgebra Lineal</button>
     <button class="filter-btn" data-filter="geometria-analitica">Geometría Analítica</button>
   </div>
 
   <!-- CATÁLOGO DE FORMULARIOS -->
   <main class="container" id="formsContainer">
+
+    <!-- ==================== ÁLGEBRA LINEAL ==================== -->
+
+    <!-- FORMULARIO AL 1: MATRICES Y OPERACIONES MATRICIALES -->
+    <div class="card" data-category="algebra-lineal" data-search="algebra lineal matrices y operaciones matriciales suma producto por escalar producto matricial propiedades algebraicas reduccion por filas formas escalonadas rango">
+      <div>
+        <div class="card-tag">Álgebra Lineal</div>
+        <h3 class="card-title">Matrices y Operaciones Matriciales</h3>
+        <p class="card-desc">Contiene las definiciones de tipos especiales de matrices, operaciones fundamentales (suma, producto por escalar y producto matricial), propiedades algebraicas de las operaciones y métodos de reducción por filas para determinar formas escalonadas y el rango.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1Sy5NP6NCdxG3kzTWTjWuHzeSbmlOsoSU/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+    <!-- FORMULARIO AL 2: DETERMINANTES E INVERSA DE UNA MATRIZ -->
+    <div class="card" data-category="algebra-lineal" data-search="algebra lineal determinantes e inversa de una matriz sarrus cofactores laplace regla de calculo matriz adjunta gauss jordan">
+      <div>
+        <div class="card-tag">Álgebra Lineal</div>
+        <h3 class="card-title">Determinantes e Inversa de una Matriz</h3>
+        <p class="card-desc">Agrupa las reglas de cálculo de determinantes (Sarrus y cofactores por Laplace), sus propiedades esenciales y las estrategias para obtener la matriz inversa mediante el método de la matriz adjunta y la reducción de Gauss-Jordan.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1VC_DY3V7DZfBpcJ6YM75VtkLkHBhEa0l/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+    <!-- FORMULARIO AL 3: SISTEMAS DE ECUACIONES LINEALES (SEL) -->
+    <div class="card" data-category="algebra-lineal" data-search="algebra lineal sistemas de ecuaciones lineales sel rouche frobenius gauss gauss-jordan cramer matriz inversa homogeneos">
+      <div>
+        <div class="card-tag">Álgebra Lineal</div>
+        <h3 class="card-title">Sistemas de Ecuaciones Lineales (SEL)</h3>
+        <p class="card-desc">Detalla la clasificación de sistemas según el Teorema de Rouché-Frobenius, los métodos de resolución (Gauss, Gauss-Jordan, Regla de Cramer y Matriz Inversa) y el análisis completo de los sistemas homogéneos.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1puuX0Zx82V3CVmibt4mmO53Qsoi7jv4i/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+    <!-- FORMULARIO AL 4: VECTORES EN R3 Y GEOMETRÍA VECTORIAL -->
+    <div class="card" data-category="algebra-lineal" data-search="algebra lineal vectores en r3 y geometria vectorial operaciones normas vectoriales producto punto producto cruz triple producto escalar rectas planos r3 distancia">
+      <div>
+        <div class="card-tag">Álgebra Lineal</div>
+        <h3 class="card-title">Vectores en R3 y Geometría Vectorial</h3>
+        <p class="card-desc">Reúne las operaciones y normas vectoriales, producto punto, producto cruz, triple producto escalar, así como la construcción de ecuaciones para rectas y planos en R³ junto con sus respectivas fórmulas de distancia.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1Vv4NaL3TE9Bd1VHNEKfdMYN_99qOVL1U/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+    <!-- FORMULARIO AL 5: ESPACIOS VECTORIALES Y SUBESPACIOS -->
+    <div class="card" data-category="algebra-lineal" data-search="algebra lineal espacios vectoriales y subespacios axiomas combinacion independencia lineal base dimension espacios fundamentales teorema de la dimension">
+      <div>
+        <div class="card-tag">Álgebra Lineal</div>
+        <h3 class="card-title">Espacios Vectoriales y Subespacios</h3>
+        <p class="card-desc">Resume los axiomas de espacio y subespacio vectorial, criterios de combinación e independencia lineal, concepto de base y dimensión, además de los espacios fundamentales de una matriz y el Teorema de la Dimensión.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1gjTCYtlhn4XLvl4A9LlNxKeSw7Z-ftzn/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+    <!-- FORMULARIO AL 6: ORTOGONALIDAD Y CAMBIO DE BASE -->
+    <div class="card" data-category="algebra-lineal" data-search="algebra lineal ortogonalidad y cambio de base conjuntos ortogonales ortonormales gram schmidt complemento proyeccion ortogonal matrices de transicion">
+      <div>
+        <div class="card-tag">Álgebra Lineal</div>
+        <h3 class="card-title">Ortogonalidad y Cambio de Base</h3>
+        <p class="card-desc">Explica conjuntos ortogonales y ortonormales, el algoritmo de ortogonalización de Gram-Schmidt, complemento y proyección ortogonal, junto con las matrices de transición para el cambio de base.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/16OFqtJxYy9hrs3M7tp7VrBDxO3agQ4Ia/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+    <!-- FORMULARIO AL 7: TRANSFORMACIONES LINEALES -->
+    <div class="card" data-category="algebra-lineal" data-search="algebra lineal transformaciones lineales nucleo imagen teorema de la dimension matriz representativa transformaciones geometricas r2">
+      <div>
+        <div class="card-tag">Álgebra Lineal</div>
+        <h3 class="card-title">Transformaciones Lineales</h3>
+        <p class="card-desc">Abarca las propiedades de las transformaciones lineales, cálculo del núcleo y la imagen, teorema de la dimensión para transformaciones, obtención de la matriz representativa y matrices de transformaciones geométricas en R².</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1-D6IlDOC4j5aietZcC6HLXqY5MAyULZ5/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+    <!-- FORMULARIO AL 8: VALORES PROPIOS, VECTORES PROPIOS Y DIAGONALIZACIÓN -->
+    <div class="card" data-category="algebra-lineal" data-search="algebra lineal valores propios vectores propios y diagonalizacion polinomio ecuacion caracteristica eigenvalores eigenvectores espacios propios diagonalizacion ortogonal potencias matriciales cayley hamilton">
+      <div>
+        <div class="card-tag">Álgebra Lineal</div>
+        <h3 class="card-title">Valores Propios, Vectores Propios y Diagonalización</h3>
+        <p class="card-desc">Incluye el polinomio y ecuación característica para el cálculo de eigenvalores y eigenvectores, espacios propios, condiciones para diagonalización estándar y ortogonal, cálculo de potencias matriciales y el Teorema de Cayley-Hamilton.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1Nk7ZX224apEOZqhgCFMbTVC4eA7aE99M/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+
+    <!-- ==================== CÁLCULO INTEGRAL ==================== -->
 
     <!-- FORMULARIO: INTEGRALES INMEDIATAS Y PROPIEDADES BÁSICAS -->
     <div class="card" data-category="calculo-integral" data-search="calculo integral integrales inmediatas y propiedades basicas leyes de linealidad antiderivadas elementales potenciales exponenciales logaritmicas trigonometricas hiperbolicas indefinida">
@@ -442,6 +528,9 @@
       </div>
       <a href="https://drive.google.com/file/d/1LHFkMif8Y9Pj72WgAAU8ZKe-oAQgfqHJ/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
     </div>
+
+
+    <!-- ==================== CÁLCULO DIFERENCIAL ==================== -->
     
     <!-- FORMULARIO: DERIVADAS BASE -->
     <div class="card" data-category="calculo-diferencial" data-search="calculo diferencial derivadas base reglas de derivacion derivadas de funciones elementales trigonometricas exponenciales funcion compuesta regla de la cadena derivada por definicion">
@@ -461,16 +550,6 @@
         <p class="card-desc">Contiene derivación compuesta trigonométrica, logarítmica y exponencial.</p>
       </div>
       <a href="https://drive.google.com/file/d/1EJ0zwx2x3-F8cx8j8ZqHhv3W4r8iErym/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
-    </div>
-
-    <!-- FORMULARIO: GEOMETRÍA ANALÍTICA COMPLETA EN 2D Y 3D -->
-    <div class="card" data-category="geometria-analitica" data-search="geometria analitica completa en 2d y 3d conceptos basicos en el plano la linea recta secciones conicas transformacion de coordenadas e identificaciones geometria en el espacio 3d conicas recta plano">
-      <div>
-        <div class="card-tag">Geometría Analítica</div>
-        <h3 class="card-title">Geometría Analítica completa en 2D y 3D</h3>
-        <p class="card-desc">Conceptos Básicos en el plano, la línea recta, secciones cónicas, transformación de coordenadas e identificaciones, geometría en el espacio 3D.</p>
-      </div>
-      <a href="https://drive.google.com/file/d/1Ch3L4klDpNfirD7s0A9fNc-lHWGtOCCn/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
     </div>
 
     <!-- FORMULARIO: GUÍA COMPLETA DE FUNCIONES -->
@@ -521,6 +600,19 @@
         <p class="card-desc">Geometría plana y modelos espaciales, relaciones métricas y trigonométricas, Razones de cambio, optimización y criterios de extremos.</p>
       </div>
       <a href="https://drive.google.com/file/d/1aWemCYmSlZg-7QZ0FpQlnkKXUbAjGA-f/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
+    </div>
+
+
+    <!-- ==================== GEOMETRÍA ANALÍTICA ==================== -->
+
+    <!-- FORMULARIO: GEOMETRÍA ANALÍTICA COMPLETA EN 2D Y 3D -->
+    <div class="card" data-category="geometria-analitica" data-search="geometria analitica completa en 2d y 3d conceptos basicos en el plano la linea recta secciones conicas transformacion de coordenadas e identificaciones geometria en el espacio 3d conicas recta plano">
+      <div>
+        <div class="card-tag">Geometría Analítica</div>
+        <h3 class="card-title">Geometría Analítica completa en 2D y 3D</h3>
+        <p class="card-desc">Conceptos Básicos en el plano, la línea recta, secciones cónicas, transformación de coordenadas e identificaciones, geometría en el espacio 3D.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1Ch3L4klDpNfirD7s0A9fNc-lHWGtOCCn/view?usp=sharing" target="_blank" class="btn-download">Ver / Descargar PDF</a>
     </div>
 
     <!-- MENSAJE SI NO HAY RESULTADOS DE BÚSQUEDA -->
