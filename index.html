@@ -874,6 +874,85 @@
       'floating-chat.donateButton.background-color': '#00d4ff',
       'floating-chat.donateButton.text-color': '#080f28'
     });
+  <!-- LÓGICA DE CONTADORES EN TIEMPO REAL (REAL Y SIN NÚMEROS FALSOS) -->
+  <script>
+    // Claves únicas e irrepetibles para tu sitio web
+    const VISIT_KEY = 'fdmathforms_visits_2026_real';
+    const DOWNLOAD_KEY = 'fdmathforms_downloads_2026_real';
+    const API_BASE = 'https://countapi.mileshilliard.com/api/v1';
+
+    // Formateador numérico elegante (ej. 1,250)
+    function formatNum(num) {
+      return Number(num).toLocaleString('es-ES');
+    }
+
+    // 1. Contador de Visitas Web Reales
+    async function initVisits() {
+      try {
+        const hasVisited = sessionStorage.getItem('fd_visited');
+        // Si entra por primera vez en su navegador, suma +1 (hit). Si recarga la página, solo consulta (get).
+        const endpoint = hasVisited ? `${API_BASE}/get/${VISIT_KEY}` : `${API_BASE}/hit/${VISIT_KEY}`;
+        
+        const res = await fetch(endpoint);
+        if (!res.ok) throw new Error('Error de servidor');
+        const data = await res.json();
+        
+        if (data && data.value !== undefined) {
+          document.getElementById('visitCount').innerText = formatNum(data.value);
+          sessionStorage.setItem('fd_visited', 'true');
+        } else {
+          document.getElementById('visitCount').innerText = '0';
+        }
+      } catch (e) {
+        // En caso de fallo de conexión, muestra 0 de forma realista
+        document.getElementById('visitCount').innerText = '0';
+      }
+    }
+
+    // 2. Contador de Estudiantes Ayudados (Descargas Reales)
+    async function initDownloads() {
+      try {
+        const res = await fetch(`${API_BASE}/get/${DOWNLOAD_KEY}`);
+        if (!res.ok) throw new Error('Error de servidor');
+        const data = await res.json();
+        
+        if (data && data.value !== undefined) {
+          document.getElementById('downloadCount').innerText = formatNum(data.value);
+        } else {
+          document.getElementById('downloadCount').innerText = '0';
+        }
+      } catch (e) {
+        document.getElementById('downloadCount').innerText = '0';
+      }
+    }
+
+    // Incrementar el contador de descargas únicamente cuando alguien hace clic en "Ver / Descargar PDF"
+    async function registerDownload() {
+      try {
+        const res = await fetch(`${API_BASE}/hit/${DOWNLOAD_KEY}`);
+        if (!res.ok) throw new Error('Error de servidor');
+        const data = await res.json();
+        
+        if (data && data.value !== undefined) {
+          document.getElementById('downloadCount').innerText = formatNum(data.value);
+        }
+      } catch (e) {
+        console.log('Error registrando descarga:', e);
+      }
+    }
+
+    // Inicialización al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+      initVisits();
+      initDownloads();
+
+      // Evento para registrar clics en los botones de descarga de PDF
+      document.querySelectorAll('.btn-download').forEach(btn => {
+        btn.addEventListener('click', () => {
+          registerDownload();
+        });
+      });
+    });
   </script>
 
 </body>
